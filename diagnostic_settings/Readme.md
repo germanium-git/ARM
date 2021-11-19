@@ -20,7 +20,7 @@ In this example the virtual machine with one OS disk C: and a few Data disks D:,
 
 Choose the same resource group where the virtual machine in which the diagnostic settings is to be activated. Fill in information about the storage account name and end point into the parameters or update it in the ordering form.
 
-&nbsp;&nbsp;&nbsp;&nbsp;<img src="pictures/Template.PNG" height="432">
+&nbsp;&nbsp;&nbsp;&nbsp;<img src="pictures/Template.PNG" width="500">
 
 ## Outcome
 
