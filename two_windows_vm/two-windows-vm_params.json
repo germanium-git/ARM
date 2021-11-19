@@ -1,0 +1,33 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "vmName": {
+        "value": "SQL"
+      },
+      "virtualMachineSize": {
+        "value": "Standard_DS1_v2"
+      },
+      "adminUsername": {
+        "value": "sqlvmadmin"
+      },
+      "adminPassword": {
+        "value": "jkg%6shrtsPhwQaa"
+      },
+      "location": {
+        "value": "westeurope"
+      },
+      "virtualNetwork": {
+        "value": "two-vm-arm"
+      },
+      "subnetName": {
+        "value": "default"
+      },
+      "NsgName": {
+        "value": "two-vm-arm"
+      },
+      "vmCount": {
+        "value": 2
+      }
+    }
+  }
