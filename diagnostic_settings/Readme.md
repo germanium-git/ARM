@@ -10,7 +10,7 @@ In this example the virtual machine with one OS disk C: and a few Data disks D:,
 
 - The storage account in which Diagnostic Logs should be saved. Guest-level monitoring can't be enabled without setting a storage account. See the note "*To get started now, choose a storage account below where diagnostic data will be sent and then click the button labeled 'Enable guest-level diagnostics'*."
   
-  <img src="pictures/storage_account.png" width="432">
+  <img src="pictures/storage_account.PNG" width="432">
 
 - The storage account key.
 
