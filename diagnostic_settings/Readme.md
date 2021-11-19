@@ -21,3 +21,9 @@ In this example the virtual machine with one OS disk C: and a few Data disks D:,
 Choose the same resource group where the virtual machine in which the diagnostic settings is to be activated. Fill in information about the storage account name and end point into the parameters or update it in the ordering form.
 
 &nbsp;&nbsp;&nbsp;&nbsp;<img src="pictures/Template.PNG" height="432">
+
+## Outcome
+
+The diagnostics settings is enabled and custom performance counters activated.
+
+<img src="pictures/diag_enabled.PNG" width="500">
