@@ -21,10 +21,10 @@
       "value": "vmadmin"
     },
     "adminPassword": {
-      "value": "Labuser_!@#1"
+      "value": "MyPassword_!@#1"
     },
     "vnetName": {
-      "value": "rg-nemedpet-sqlbackup-test-vnet"
+      "value": "myvnet-name"
     },
     "subnetName": {
       "value": "default"
