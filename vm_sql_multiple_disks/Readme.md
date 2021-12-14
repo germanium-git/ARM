@@ -16,7 +16,7 @@ The virtual machine created by the template is supposed to be placed into an ava
 
 The virtual machine from the example shown below has been created with the size Standard_DS3_v2 and 5xP40, 3xP30 and 1xP3 data disks with Read only caching enabled for 5xP40.
 
-<img src="pictures/disks.PNG" width="500">
+<img src="pictures/disks.PNG" width="800">
 
 ## Additional information
 
