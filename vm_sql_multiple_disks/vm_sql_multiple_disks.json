@@ -1,0 +1,612 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name for the Virtual Machine"
+      }
+    },
+    "avSetName": {
+      "type": "string"
+    },
+    "faultDomainCount": {
+      "type": "int",
+      "metadata": {
+        "description": "Number of fault domains"
+      }
+    },
+    "updateDomainCount": {
+      "type": "int",
+      "metadata": {
+        "description": "Number of update domains"
+      }
+    },
+    "createAvailabilitySet": {
+      "type": "string",
+      "defaultValue": "Yes",
+      "allowedValues": [
+        "Yes",
+        "No"
+      ],
+      "metadata": {
+        "description": "Choose YES if the Availability Set specified before must be created by the template; choose NO if the Availability Set already exists"
+      }
+    },
+    "adminUsername": {
+      "type": "string",
+      "metadata": {
+        "description": "Admin username for the Virtual Machine. If a domain is specified in the appropriate parameter, this user will be used both for local admin and to join domain"
+      }
+    },
+    "adminPassword": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Admin password for the Virtual Machine"
+      }
+    },
+    "vnetName": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 100,
+      "defaultValue": "",
+      "metadata": {
+        "description": "The vnet you want to connect to. Leave empty to create a new ad hoc virtual network"
+      }
+    },
+    "subnetName": {
+      "type": "string",
+      "defaultValue": "default",
+      "metadata": {
+        "description": "The subnet you want to connect to"
+      }
+    },
+    "privateIp": {
+      "type": "string",
+      "defaultValue": "dhcp",
+      "metadata": {
+        "description": "The private IP address you want to assign to the NIC; leave DHCP to maintain a dynamic IP"
+      }
+    },
+    "enableAcceleratedNetworking": {
+      "type": "string",
+      "defaultValue": "Yes",
+      "allowedValues": [
+        "Yes",
+        "No"
+      ],
+      "metadata": {
+        "description": "Would you like to enable accelerated networking? It works only on supported VMs"
+      }
+    },
+    "winVersion": {
+      "type": "string",
+      "defaultValue": "Windows Server 2019 Datacenter",
+      "allowedValues": [
+        "Windows Server 2016 Datacenter",
+        "Windows Server 2019 Datacenter",
+        "Windows Server 2019 Datacenter Server Core"
+       ],
+       "metadata": {
+            "description": "The Windows server version you want to deploy"
+          }
+        },
+    "vmSize": {
+      "type": "string",
+      "defaultValue": "Standard_DS3_v2",
+      "metadata": {
+        "description": "The size of the virtual machine"
+      },
+      "allowedValues": [
+        "Standard_DS1",
+        "Standard_DS2",
+        "Standard_DS3",
+        "Standard_DS4",
+        "Standard_DS11",
+        "Standard_DS12",
+        "Standard_DS13",
+        "Standard_DS14",
+        "Standard_D1_v2",
+        "Standard_D2_v2",
+        "Standard_D3_v2",
+        "Standard_D4_v2",
+        "Standard_D5_v2",
+        "Standard_D11_v2",
+        "Standard_D12_v2",
+        "Standard_D13_v2",
+        "Standard_D14_v2",
+        "Standard_D15_v2",
+        "Standard_D2_v2_Promo",
+        "Standard_D3_v2_Promo",
+        "Standard_D4_v2_Promo",
+        "Standard_D5_v2_Promo",
+        "Standard_D11_v2_Promo",
+        "Standard_D12_v2_Promo",
+        "Standard_D13_v2_Promo",
+        "Standard_D14_v2_Promo",
+        "Standard_F1",
+        "Standard_F2",
+        "Standard_F4",
+        "Standard_F8",
+        "Standard_F16",
+        "Standard_DS1_v2",
+        "Standard_DS2_v2",
+        "Standard_DS3_v2",
+        "Standard_DS4_v2",
+        "Standard_DS5_v2",
+        "Standard_DS11_v2",
+        "Standard_DS12_v2",
+        "Standard_DS13-2_v2",
+        "Standard_DS13-4_v2",
+        "Standard_DS13_v2",
+        "Standard_DS14-4_v2",
+        "Standard_DS14-8_v2",
+        "Standard_DS14_v2",
+        "Standard_DS15_v2",
+        "Standard_DS2_v2_Promo",
+        "Standard_DS3_v2_Promo",
+        "Standard_DS4_v2_Promo",
+        "Standard_DS5_v2_Promo",
+        "Standard_DS11_v2_Promo",
+        "Standard_DS12_v2_Promo",
+        "Standard_DS13_v2_Promo",
+        "Standard_DS14_v2_Promo",
+        "Standard_F1s",
+        "Standard_F2s",
+        "Standard_F4s",
+        "Standard_F8s",
+        "Standard_F16s",
+        "Standard_D2_v3",
+        "Standard_D4_v3",
+        "Standard_D8_v3",
+        "Standard_D16_v3",
+        "Standard_D32_v3",
+        "Standard_D2s_v3",
+        "Standard_D4s_v3",
+        "Standard_D8s_v3",
+        "Standard_D16s_v3",
+        "Standard_D32s_v3",
+        "Standard_E2_v3",
+        "Standard_E4_v3",
+        "Standard_E8_v3",
+        "Standard_E16_v3",
+        "Standard_E32_v3",
+        "Standard_E64_v3",
+        "Standard_E2s_v3",
+        "Standard_E4s_v3",
+        "Standard_E8s_v3",
+        "Standard_E16s_v3",
+        "Standard_E32s_v3",
+        "Standard_E64s_v3",
+        "Standard_F2s_v2",
+        "Standard_F4s_v2",
+        "Standard_F8s_v2",
+        "Standard_F16s_v2",
+        "Standard_F32s_v2",
+        "Standard_F64s_v2",
+        "Standard_F72s_v2",
+        "Standard_H8",
+        "Standard_H16",
+        "Standard_H8m",
+        "Standard_H16m",
+        "Standard_H16r",
+        "Standard_H16mr",
+        "Standard_G1",
+        "Standard_G2",
+        "Standard_G3",
+        "Standard_G4",
+        "Standard_G5",
+        "Standard_GS1",
+        "Standard_GS2",
+        "Standard_GS3",
+        "Standard_GS4",
+        "Standard_GS4-4",
+        "Standard_GS4-8",
+        "Standard_GS5",
+        "Standard_GS5-8",
+        "Standard_GS5-16",
+        "Standard_L4s",
+        "Standard_L8s",
+        "Standard_L16s",
+        "Standard_L32s",
+        "Standard_E32-8s_v3",
+        "Standard_E32-16s_v3",
+        "Standard_E64-16s_v3",
+        "Standard_E64-32s_v3",
+        "Standard_A8",
+        "Standard_A9",
+        "Standard_A10",
+        "Standard_A11"
+      ]
+    },
+    "useAHB": {
+      "type": "string",
+      "allowedValues": [
+        "Yes",
+        "No"
+      ],
+      "defaultValue": "No",
+      "metadata": {
+        "description": "Would you like to active Azure Hybrid Benefits and use an existing Windows license on this VM?"
+      }
+    },
+    "timeZone": {
+      "type": "string",
+      "allowedValues": [
+        "(UTC) Coordinated Universal Time",
+        "(UTC+00:00) Dublin, Edinburgh, Lisbon, London",
+        "(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna",
+        "(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague",
+        "(UTC+01:00) Brussels, Copenhagen, Madrid, Paris",
+        "(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb",
+        "(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius"
+      ],
+      "defaultValue": "(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna",
+      "metadata": {
+        "description": "Choose the time zone for the virtual machine"
+      }
+    },
+    "osDiskSuffix": {
+      "type": "string",
+      "defaultValue": "OsDisk",
+      "metadata": {
+        "description": "Suffix that will be used to compose OS disk name"
+      }
+    },
+    "AdditionalDiskSuffix": {
+      "type": "string",
+      "defaultValue": "DataDisk",
+      "metadata": {
+        "description": "Suffix that will be used to compose additional disk name"
+      }
+    },
+    "osDiskStorageSku": {
+      "type": "string",
+      "allowedValues": [
+        "Standard_LRS",
+        "StandardSSD_LRS",
+        "Premium_LRS",
+        "UltraSSD_LRS"
+      ],
+      "defaultValue": "Premium_LRS",
+      "metadata": {
+        "description": "The type of storage to use for OS disk"
+      }
+    },
+    "dataDiskStorageSku": {
+      "type": "string",
+      "allowedValues": [
+        "Standard_LRS",
+        "StandardSSD_LRS",
+        "Premium_LRS",
+        "UltraSSD_LRS"
+      ],
+      "defaultValue": "Premium_LRS",
+      "metadata": {
+        "description": "The type of storage to use for Data Disks"
+      }
+    },
+    "NoOfDataDisks": {
+      "type": "int",
+      "defaultValue": 1,
+      "metadata": {
+        "description": "The number of data disks to add to the virtual machine"
+      }
+    },
+    "dataDisksSize": {
+      "type": "int",
+      "defaultValue": 1023,
+      "metadata": {
+        "description": "The size of data disks to add to the virtual machine"
+      }
+    },
+    "NoOfLogDisks": {
+      "type": "int",
+      "defaultValue": 1,
+      "metadata": {
+        "description": "The number of log disks to add to the virtual machine"
+      }
+    },
+    "logDisksSize": {
+      "type": "int",
+      "defaultValue": 1023,
+      "metadata": {
+        "description": "The size of log disks to add to the virtual machine"
+      }
+    },
+    "logDiskStorageSku": {
+      "type": "string",
+      "allowedValues": [
+        "Standard_LRS",
+        "StandardSSD_LRS",
+        "Premium_LRS",
+        "UltraSSD_LRS"
+      ],
+      "defaultValue": "Premium_LRS",
+      "metadata": {
+        "description": "The type of storage to use for Log Disks"
+      }
+    },
+    "NoOfAdditionalDisks": {
+      "type": "int",
+      "defaultValue": 0,
+      "metadata": {
+        "description": "The number of additional disks to add to the virtual machine"
+      }
+    },
+    "additionalDisksSize": {
+      "type": "int",
+      "defaultValue": 1023,
+      "metadata": {
+        "description": "The size of additional disks to add to the virtual machine"
+      }
+    },
+    "additionalDiskStorageSku": {
+      "type": "string",
+      "allowedValues": [
+        "Standard_LRS",
+        "StandardSSD_LRS",
+        "Premium_LRS",
+        "UltraSSD_LRS"
+      ],
+      "defaultValue": "Standard_LRS",
+      "metadata": {
+        "description": "The type of storage to use for Log Disks"
+      }
+    },
+    "EnableSqlIaasExtension": {
+      "type": "string",
+      "defaultValue": "Yes",
+      "allowedValues": [
+        "Yes",
+        "No"
+      ],
+      "metadata": {
+        "description": "Enable SQL IaaS Extension?"
+      }
+    }
+  },
+  "variables": {
+    "nicName": "[concat(parameters('vmName'),'-NIC')]",
+    "vnetID": "[resourceId(resourceGroup().name, 'Microsoft.Network/virtualNetworks', parameters('vnetName'))]",
+    "subnetRef": "[concat(variables('vnetID'),'/subnets/', toLower(parameters('subnetName')))]",
+    "logDiskOffset": "[add(parameters('NoOfDataDisks'), 1)]",
+    "additonalDiskOffset": "[add(add(parameters('NoOfDataDisks'),parameters('NoOfLogDisks')), 1)]",
+    "TimeZoneObj": {
+      "(UTC) Coordinated Universal Time": { "id": "UTC" },
+      "(UTC+00:00) Dublin, Edinburgh, Lisbon, London": { "id": "GMT Standard Time" },
+      "(UTC+00:00) Monrovia, Reykjavik": { "id": "Greenwich Standard Time" },
+      "(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna": { "id": "W. Europe Standard Time" },
+      "(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague": { "id": "Central Europe Standard Time" },
+      "(UTC+01:00) Brussels, Copenhagen, Madrid, Paris": { "id": "Romance Standard Time" },
+      "(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb": { "id": "Central European Standard Time" },
+      "(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius": { "id": "FLE Standard Time" }
+    },
+    "copy": [
+      {
+        "name": "diskAttach",
+        "count": "[parameters('NoOfDataDisks')]",
+        "input": {
+          "name": "[concat(parameters('vmName'), '-', parameters('AdditionalDiskSuffix'), string(CopyIndex('diskAttach', 1)))]",
+          "createOption": "attach",
+          "caching": "ReadOnly",
+          "lun": "[CopyIndex('diskAttach', 1)]",
+          "managedDisk": {
+            "id": "[resourceId('Microsoft.Compute/disks',concat(parameters('vmName'), '-', parameters('AdditionalDiskSuffix'), string(CopyIndex('diskAttach', 1))))]"
+          }
+        }
+      },
+      {
+       "name": "logdiskAttach",
+        "count": "[parameters('NoOfLogDisks')]",
+        "input": {
+          "name": "[concat(parameters('vmName'), '-', parameters('AdditionalDiskSuffix'), string(CopyIndex('logdiskAttach', variables('logDiskOffset'))))]",
+          "createOption": "attach",
+          "caching": "none",
+          "lun": "[CopyIndex('logdiskAttach', variables('logDiskOffset'))]",
+          "managedDisk": {
+            "id": "[resourceId('Microsoft.Compute/disks',concat(parameters('vmName'), '-', parameters('AdditionalDiskSuffix'), string(CopyIndex('logdiskAttach', variables('logDiskOffset')))))]"
+          }
+        }
+      },
+      {
+       "name": "additinaldiskAttach",
+        "count": "[parameters('NoOfAdditionalDisks')]",
+        "input": {
+          "name": "[concat(parameters('vmName'), '-', parameters('AdditionalDiskSuffix'), string(CopyIndex('additinaldiskAttach', variables('additonalDiskOffset'))))]",
+          "createOption": "attach",
+          "caching": "none",
+          "lun": "[CopyIndex('additinaldiskAttach', variables('additonalDiskOffset'))]",
+          "managedDisk": {
+            "id": "[resourceId('Microsoft.Compute/disks',concat(parameters('vmName'), '-', parameters('AdditionalDiskSuffix'), string(CopyIndex('additinaldiskAttach', variables('additonalDiskOffset')))))]"
+          }
+        }
+      }
+    ],
+    "diskattachAll": "[union(variables('diskAttach'), variables('logdiskAttach'),variables('additinaldiskAttach'))]",
+    "winVersionObj": {
+      "Windows Server 2016 Datacenter": {
+        "offer": "WindowsServer",
+        "sku": "2016-Datacenter"
+      },
+      "Windows Server 2019 Datacenter": {
+        "offer": "WindowsServer",
+        "sku": "2019-Datacenter"
+      },
+      "Windows Server 2019 Datacenter Server Core": {
+        "offer": "WindowsServer",
+        "sku": "2019-Datacenter-Core"
+      }
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2017-09-01",
+      "type": "Microsoft.Network/networkInterfaces",
+      "name": "[variables('nicName')]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "privateIPAllocationMethod": "[if(equals(tolower(parameters('privateIP')), 'dhcp'), 'Dynamic', 'Static')]",
+              "privateIPAddress": "[if(equals(tolower(parameters('privateIP')), 'dhcp'), json('null'), parameters('privateIP'))]",
+              "subnet": {
+                "id": "[variables('subnetRef')]"
+              }
+            }
+          }
+        ],
+        "enableAcceleratedNetworking": "[if(equals(tolower(parameters('enableAcceleratedNetworking')), 'yes'), bool('true'), bool('false'))]"
+      }
+    },
+    {
+      "apiVersion": "2020-06-01",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[parameters('vmName')]",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]",
+        "[resourceId('Microsoft.Compute/availabilitySets', parameters('avSetName'))]",
+        "dataDisks",
+        "logDisks"
+      ],
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "[parameters('vmSize')]"
+        },
+        "licenseType": "[if(equals(toLower(parameters('useAHB')), 'yes'), 'Windows_Server', 'None')]",
+        "osProfile": {
+          "computerName": "[parameters('vmName')]",
+          "adminUsername": "[parameters('adminUsername')]",
+          "adminPassword": "[parameters('adminPassword')]",
+          "windowsConfiguration": {
+            "timeZone": "[variables('TimeZoneObj')[parameters('TimeZone')].id]"
+          }
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "MicrosoftWindowsServer",
+            "offer": "[variables('winVersionObj')[parameters('winVersion')].offer]",
+            "sku": "[variables('winVersionObj')[parameters('winVersion')].sku]",
+            "version": "latest"
+          },
+          "osDisk": {
+            "osType": "Windows",
+            "createOption": "FromImage",
+            "name": "[concat(parameters('vmName'), '-', parameters('OsDiskSuffix'))]",
+            "managedDisk": {
+              "storageAccountType": "[parameters('OsDiskStorageSku')]"
+            }
+          },
+          "dataDisks": "[variables('diskattachAll')]"
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
+            }
+          ]
+        },
+        "availabilitySet": {
+          "id": "[resourceId('Microsoft.Compute/availabilitySets',parameters('avSetName'))]"
+        }
+      }
+    },
+    {
+      "apiVersion": "2020-09-30",
+      "type": "Microsoft.Compute/disks",
+      "name": "[concat(parameters('vmName'), '-', parameters('AdditionalDiskSuffix'), string(CopyIndex('dataDisks', 1)))]",
+      "condition": "[greater(parameters('NoOfDataDisks'), 0)]",
+      "location": "[resourceGroup().location]",
+      "copy": {
+          "name": "dataDisks",
+          "count": "[parameters('NoOfDataDisks')]"
+      },
+      "properties": {
+        "diskSizeGB": "[parameters('dataDisksSize')]",
+        "creationData": {
+          "createOption": "Empty"
+        }
+      },
+      "sku": {
+        "name": "[parameters('dataDiskStorageSku')]"
+      }
+    },
+    {
+      "apiVersion": "2020-09-30",
+      "type": "Microsoft.Compute/disks",
+      "name": "[concat(parameters('vmName'), '-', parameters('AdditionalDiskSuffix'), string(CopyIndex('logDisks', variables('logDiskOffset'))))]",
+      "condition": "[greater(parameters('NoOfLogDisks'), 0)]",
+      "location": "[resourceGroup().location]",
+      "copy": {
+          "name": "logDisks",
+          "count": "[parameters('NoOfLogDisks')]"
+      },
+      "properties": {
+        "diskSizeGB": "[parameters('logDisksSize')]",
+        "creationData": {
+          "createOption": "Empty"
+        }
+      },
+      "sku": {
+        "name": "[parameters('logDiskStorageSku')]"
+      }
+    },
+    {
+      "apiVersion": "2020-09-30",
+      "type": "Microsoft.Compute/disks",
+      "name": "[concat(parameters('vmName'), '-', parameters('AdditionalDiskSuffix'), string(CopyIndex('additionalDisks', variables('additonalDiskOffset'))))]",
+      "condition": "[greater(parameters('NoOfAdditionalDisks'), 0)]",
+      "location": "[resourceGroup().location]",
+      "copy": {
+          "name": "additionalDisks",
+          "count": "[parameters('NoOfAdditionalDisks')]"
+      },
+      "properties": {
+        "diskSizeGB": "[parameters('additionalDisksSize')]",
+        "creationData": {
+          "createOption": "Empty"
+        }
+      },
+      "sku": {
+        "name": "[parameters('additionalDiskStorageSku')]"
+      }
+    },
+    {
+      "type": "Microsoft.Compute/availabilitySets",
+      "name": "[parameters('avSetName')]",
+      "apiVersion": "2016-04-30-preview",
+      "location": "[resourceGroup().location]",
+      "condition": "[equals(toLower(parameters('createAvailabilitySet')), 'yes')]",
+      "properties": {
+        "platformFaultDomainCount": "[parameters('faultDomainCount')]",
+        "platformUpdateDomainCount": "[parameters('UpdateDomainCount')]",
+        "managed": true
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "name": "[concat(parameters('vmName'), '/SqlIaasExtension')]",
+      "location": "[resourceGroup().location]",
+      "condition": "[if(equals(toLower(parameters('EnableSqlIaasExtension')), 'yes'), bool('true'), bool('false'))]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+      ],
+      "properties": {
+        "type": "SqlIaaSAgent",
+        "publisher": "Microsoft.SqlServer.Management",
+        "typeHandlerVersion": "1.2",
+        "autoUpgradeMinorVersion": "true",
+        "settings": {
+          "AutoTelemetrySettings": {
+            "Region": "[resourceGroup().location]"
+          }
+        }
+      }
+    }
+  ]
+} 
