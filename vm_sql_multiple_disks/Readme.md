@@ -12,9 +12,21 @@ Each type is represented with the parameters specifying number of disks, SKU, si
 
 The virtual machine created by the template is supposed to be placed into a proximity placement group in an availability set that also may be created by template. Whether or not the availability set and proximity placement groups are created depends on the parameters createAvailabilitySet and createPpg. In such a way multiple VMs can be created while being put into the same proximity group and which can be further on used for forming clusters.
 
+## Notice
+
+The template can use the virtual network and subnet from different resource group.
+If this is needed than add the following parameter into parameters. By default it takes the name of the RG where the resources are created.
+
+```
+    "networkRg": {
+        "value": "mynetwork-rg"
+    },
+```
+
 ## Outcome
 
 The template creates the following resources.
+
 
 <img src="pictures/resources.PNG" width="800">
 
