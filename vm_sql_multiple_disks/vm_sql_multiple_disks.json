@@ -34,6 +34,20 @@
         "description": "Choose YES if the Availability Set specified before must be created by the template; choose NO if the Availability Set already exists"
       }
     },
+    "ppgName":{
+      "type": "string"
+    },
+    "createPpg":{
+      "type": "string",
+      "defaultValue": "Yes",
+      "allowedValues": [
+        "Yes",
+        "No"
+      ],
+      "metadata": {
+        "description": "Choose YES if the Proximity Placemnet Group specified before must be created by the template; choose NO if the PPG already exists"
+      }
+    },
     "adminUsername": {
       "type": "string",
       "metadata": {
@@ -42,8 +56,16 @@
     },
     "adminPassword": {
       "type": "securestring",
+      "defaultValue": "[newGuid()]",
       "metadata": {
         "description": "Admin password for the Virtual Machine"
+      }
+    },
+    "networkRg": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().name]",
+      "metadata": {
+        "description": "Name of the resource group the vNet belongs to"
       }
     },
     "vnetName": {
@@ -368,8 +390,8 @@
     }
   },
   "variables": {
-    "nicName": "[concat(parameters('vmName'),'-NIC')]",
-    "vnetID": "[resourceId(resourceGroup().name, 'Microsoft.Network/virtualNetworks', parameters('vnetName'))]",
+    "nicName": "[concat(parameters('vmName'),'-nic1')]",
+    "vnetID": "[resourceId(parameters('networkRg'), 'Microsoft.Network/virtualNetworks', parameters('vnetName'))]",
     "subnetRef": "[concat(variables('vnetID'),'/subnets/', toLower(parameters('subnetName')))]",
     "logDiskOffset": "[add(parameters('NoOfDataDisks'), 1)]",
     "additonalDiskOffset": "[add(add(parameters('NoOfDataDisks'),parameters('NoOfLogDisks')), 1)]",
@@ -512,7 +534,10 @@
         },
         "availabilitySet": {
           "id": "[resourceId('Microsoft.Compute/availabilitySets',parameters('avSetName'))]"
-        }
+        },
+        "proximityPlacementGroup": {
+          "id": "[resourceId('Microsoft.Compute/proximityPlacementGroups',concat(parameters('ppgName')))]"
+        } 
       }
     },
     {
@@ -578,13 +603,31 @@
     {
       "type": "Microsoft.Compute/availabilitySets",
       "name": "[parameters('avSetName')]",
-      "apiVersion": "2016-04-30-preview",
+      "apiVersion": "2018-10-01",
       "location": "[resourceGroup().location]",
       "condition": "[equals(toLower(parameters('createAvailabilitySet')), 'yes')]",
+      "sku": {
+        "name": "Aligned"
+      },
       "properties": {
         "platformFaultDomainCount": "[parameters('faultDomainCount')]",
         "platformUpdateDomainCount": "[parameters('UpdateDomainCount')]",
-        "managed": true
+        "proximityPlacementGroup": {
+          "id": "[resourceId('Microsoft.Compute/proximityPlacementGroups',parameters('ppgName'))]"
+        }
+      },
+      "dependsOn": [
+        "[concat('Microsoft.Compute/proximityPlacementGroups/', parameters('ppgName'))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Compute/proximityPlacementGroups",
+      "apiVersion": "2019-03-01",
+      "name": "[parameters('ppgName')]",
+      "location": "[resourceGroup().location]",
+      "condition": "[equals(toLower(parameters('createPpg')), 'yes')]",
+      "properties": {
+        "proximityPlacementGroupType": "Standard"
       }
     },
     {

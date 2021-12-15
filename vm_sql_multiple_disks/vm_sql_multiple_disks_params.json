@@ -17,11 +17,17 @@
     "createAvailabilitySet": {
       "value": "No"
     },
+    "ppgName":{
+      "value": "ppg1"
+    },
+    "createPpg":{
+      "value": "No"
+    },
     "adminUsername": {
       "value": "vmadmin"
     },
-    "adminPassword": {
-      "value": "MyPassword_!@#1"
+    "networkRg": {
+      "value": "nw-rg"
     },
     "vnetName": {
       "value": "myvnet-name"
