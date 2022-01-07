@@ -1,0 +1,2458 @@
+{
+    "properties": {
+      "lenses": {
+        "0": {
+          "order": 0,
+          "parts": {
+            "0": {
+              "position": {
+                "x": 0,
+                "y": 0,
+                "colSpan": 16,
+                "rowSpan": 1
+              },
+              "metadata": {
+                "inputs": [],
+                "type": "Extension/HubsExtension/PartType/MarkdownPart",
+                "settings": {
+                  "content": {
+                    "settings": {
+                      "content": "# VM vs OS and DATA disks (Bandwidth and Throughput %)\n",
+                      "title": "",
+                      "subtitle": "",
+                      "markdownSource": 1,
+                      "markdownUri": null
+                    }
+                  }
+                }
+              }
+            },
+            "1": {
+              "position": {
+                "x": 0,
+                "y": 1,
+                "colSpan": 8,
+                "rowSpan": 4
+              },
+              "metadata": {
+                "inputs": [
+                  {
+                    "name": "resourceTypeMode",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "ComponentId",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "Scope",
+                    "value": {
+                      "resourceIds": [
+                        "/subscriptions/11111111-2222-3333-4444-555555555555"
+                      ]
+                    },
+                    "isOptional": true
+                  },
+                  {
+                    "name": "PartId",
+                    "value": "11fdcfaa-159c-435c-8641-5b9e5b3814b3",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "Version",
+                    "value": "2.0",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "TimeRange",
+                    "value": "P1D",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "DashboardId",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "DraftRequestParameters",
+                    "value": {
+                      "scope": "hierarchy"
+                    },
+                    "isOptional": true
+                  },
+                  {
+                    "name": "Query",
+                    "value": "Perf\n| where Computer == 'myvm01.mydomain.local'\n| where CounterName == 'Avg. Disk sec/Read'\n| where InstanceName == 'O:' or InstanceName == 'P:' or InstanceName == 'R:' or InstanceName == 'C:' or InstanceName == 'D:'\n",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "ControlType",
+                    "value": "FrameControlChart",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "SpecificChart",
+                    "value": "Line",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "PartTitle",
+                    "value": "Analytics",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "PartSubTitle",
+                    "value": "11111111-2222-3333-4444-555555555555",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "Dimensions",
+                    "value": {
+                      "xAxis": {
+                        "name": "TimeGenerated",
+                        "type": "datetime"
+                      },
+                      "yAxis": [
+                        {
+                          "name": "CounterValue",
+                          "type": "real"
+                        }
+                      ],
+                      "splitBy": [
+                        {
+                          "name": "InstanceName",
+                          "type": "string"
+                        }
+                      ],
+                      "aggregation": "Sum"
+                    },
+                    "isOptional": true
+                  },
+                  {
+                    "name": "LegendOptions",
+                    "value": {
+                      "isEnabled": true,
+                      "position": "Bottom"
+                    },
+                    "isOptional": true
+                  },
+                  {
+                    "name": "IsQueryContainTimeRange",
+                    "value": false,
+                    "isOptional": true
+                  }
+                ],
+                "type": "Extension/Microsoft_OperationsManagementSuite_Workspace/PartType/LogsDashboardPart",
+                "settings": {},
+                "partHeader": {
+                  "title": "myvm01 - Avg. Disk sec/Read",
+                  "subtitle": ""
+                }
+              }
+            },
+            "2": {
+              "position": {
+                "x": 8,
+                "y": 1,
+                "colSpan": 8,
+                "rowSpan": 4
+              },
+              "metadata": {
+                "inputs": [
+                  {
+                    "name": "resourceTypeMode",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "ComponentId",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "Scope",
+                    "value": {
+                      "resourceIds": [
+                        "/subscriptions/66666666-7777-8888-9999-000000000000/resourcegroups/rglogging/providers/microsoft.operationalinsights/workspaces/mylogwspc01"
+                      ]
+                    },
+                    "isOptional": true
+                  },
+                  {
+                    "name": "PartId",
+                    "value": "10687d79-115f-443e-bc11-1120b48612de",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "Version",
+                    "value": "2.0",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "TimeRange",
+                    "value": "P1D",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "DashboardId",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "DraftRequestParameters",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "Query",
+                    "value": "Perf\n| where Computer == 'myvm01.mydomain.local'\n| where CounterName == 'Avg. Disk sec/Write'\n| where InstanceName == 'O:' or InstanceName == 'P:' or InstanceName == 'R:' or InstanceName == 'C:' or InstanceName == 'D:'\n\n",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "ControlType",
+                    "value": "FrameControlChart",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "SpecificChart",
+                    "value": "Line",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "PartTitle",
+                    "value": "Analytics",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "PartSubTitle",
+                    "value": "mylogwspc01",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "Dimensions",
+                    "value": {
+                      "xAxis": {
+                        "name": "TimeGenerated",
+                        "type": "datetime"
+                      },
+                      "yAxis": [
+                        {
+                          "name": "CounterValue",
+                          "type": "real"
+                        }
+                      ],
+                      "splitBy": [
+                        {
+                          "name": "InstanceName",
+                          "type": "string"
+                        }
+                      ],
+                      "aggregation": "Sum"
+                    },
+                    "isOptional": true
+                  },
+                  {
+                    "name": "LegendOptions",
+                    "value": {
+                      "isEnabled": true,
+                      "position": "Bottom"
+                    },
+                    "isOptional": true
+                  },
+                  {
+                    "name": "IsQueryContainTimeRange",
+                    "value": false,
+                    "isOptional": true
+                  }
+                ],
+                "type": "Extension/Microsoft_OperationsManagementSuite_Workspace/PartType/LogsDashboardPart",
+                "settings": {},
+                "partHeader": {
+                  "title": "myvm01 - Avg. Disk sec/Write",
+                  "subtitle": ""
+                }
+              }
+            },
+            "3": {
+              "position": {
+                "x": 0,
+                "y": 5,
+                "colSpan": 8,
+                "rowSpan": 4
+              },
+              "metadata": {
+                "inputs": [
+                  {
+                    "name": "resourceTypeMode",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "ComponentId",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "Scope",
+                    "value": {
+                      "resourceIds": [
+                        "/subscriptions/66666666-7777-8888-9999-000000000000/resourcegroups/rglogging/providers/microsoft.operationalinsights/workspaces/mylogwspc01"
+                      ]
+                    },
+                    "isOptional": true
+                  },
+                  {
+                    "name": "PartId",
+                    "value": "15247e34-10e3-4a38-8631-18f6457514ae",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "Version",
+                    "value": "2.0",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "TimeRange",
+                    "value": "P1D",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "DashboardId",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "DraftRequestParameters",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "Query",
+                    "value": "Perf\n| where Computer == 'myvm01.mydomain.local'\n| where CounterName == '% Disk Read Time'\n| where InstanceName == 'O:' or InstanceName == 'P:' or InstanceName == 'R:' or InstanceName == 'C:' or InstanceName == 'D:'\n\n",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "ControlType",
+                    "value": "FrameControlChart",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "SpecificChart",
+                    "value": "Line",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "PartTitle",
+                    "value": "Analytics",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "PartSubTitle",
+                    "value": "mylogwspc01",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "Dimensions",
+                    "value": {
+                      "xAxis": {
+                        "name": "TimeGenerated",
+                        "type": "datetime"
+                      },
+                      "yAxis": [
+                        {
+                          "name": "CounterValue",
+                          "type": "real"
+                        }
+                      ],
+                      "splitBy": [
+                        {
+                          "name": "InstanceName",
+                          "type": "string"
+                        }
+                      ],
+                      "aggregation": "Sum"
+                    },
+                    "isOptional": true
+                  },
+                  {
+                    "name": "LegendOptions",
+                    "value": {
+                      "isEnabled": true,
+                      "position": "Bottom"
+                    },
+                    "isOptional": true
+                  },
+                  {
+                    "name": "IsQueryContainTimeRange",
+                    "value": false,
+                    "isOptional": true
+                  }
+                ],
+                "type": "Extension/Microsoft_OperationsManagementSuite_Workspace/PartType/LogsDashboardPart",
+                "settings": {},
+                "partHeader": {
+                  "title": "myvm01 - % Disk Read Time",
+                  "subtitle": ""
+                }
+              }
+            },
+            "4": {
+              "position": {
+                "x": 8,
+                "y": 5,
+                "colSpan": 8,
+                "rowSpan": 4
+              },
+              "metadata": {
+                "inputs": [
+                  {
+                    "name": "resourceTypeMode",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "ComponentId",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "Scope",
+                    "value": {
+                      "resourceIds": [
+                        "/subscriptions/66666666-7777-8888-9999-000000000000/resourcegroups/rglogging/providers/microsoft.operationalinsights/workspaces/mylogwspc01"
+                      ]
+                    },
+                    "isOptional": true
+                  },
+                  {
+                    "name": "PartId",
+                    "value": "4113377d-5fe2-4037-a117-cb1d99957d86",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "Version",
+                    "value": "2.0",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "TimeRange",
+                    "value": "P1D",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "DashboardId",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "DraftRequestParameters",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "Query",
+                    "value": "Perf\n| where Computer == 'myvm01.mydomain.local'\n| where CounterName == '% Disk Write Time'\n| where InstanceName == 'O:' or InstanceName == 'P:' or InstanceName == 'R:' or InstanceName == 'C:' or InstanceName == 'D:'\n\n",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "ControlType",
+                    "value": "FrameControlChart",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "SpecificChart",
+                    "value": "Line",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "PartTitle",
+                    "value": "Analytics",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "PartSubTitle",
+                    "value": "mylogwspc01",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "Dimensions",
+                    "value": {
+                      "xAxis": {
+                        "name": "TimeGenerated",
+                        "type": "datetime"
+                      },
+                      "yAxis": [
+                        {
+                          "name": "CounterValue",
+                          "type": "real"
+                        }
+                      ],
+                      "splitBy": [
+                        {
+                          "name": "InstanceName",
+                          "type": "string"
+                        }
+                      ],
+                      "aggregation": "Sum"
+                    },
+                    "isOptional": true
+                  },
+                  {
+                    "name": "LegendOptions",
+                    "value": {
+                      "isEnabled": true,
+                      "position": "Bottom"
+                    },
+                    "isOptional": true
+                  },
+                  {
+                    "name": "IsQueryContainTimeRange",
+                    "value": false,
+                    "isOptional": true
+                  }
+                ],
+                "type": "Extension/Microsoft_OperationsManagementSuite_Workspace/PartType/LogsDashboardPart",
+                "settings": {},
+                "partHeader": {
+                  "title": "myvm01 - % Disk Write Time",
+                  "subtitle": ""
+                }
+              }
+            },
+            "5": {
+              "position": {
+                "x": 0,
+                "y": 9,
+                "colSpan": 16,
+                "rowSpan": 1
+              },
+              "metadata": {
+                "inputs": [],
+                "type": "Extension/HubsExtension/PartType/MarkdownPart",
+                "settings": {
+                  "content": {
+                    "settings": {
+                      "content": "## \"Physical Data disk Bandwidth and Throughput\"",
+                      "title": "",
+                      "subtitle": "",
+                      "markdownSource": 1,
+                      "markdownUri": null
+                    }
+                  }
+                }
+              }
+            },
+            "6": {
+              "position": {
+                "x": 0,
+                "y": 10,
+                "colSpan": 4,
+                "rowSpan": 3
+              },
+              "metadata": {
+                "inputs": [
+                  {
+                    "name": "sharedTimeRange",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "options",
+                    "value": {
+                      "chart": {
+                        "metrics": [
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk1"
+                            },
+                            "name": "Composite Disk Read Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk1"
+                            },
+                            "name": "Composite Disk Read Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Operations/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk1"
+                            },
+                            "name": "Composite Disk Write Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk1"
+                            },
+                            "name": "Composite Disk Write Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Operations/sec(Preview)"
+                            }
+                          }
+                        ],
+                        "title": "Avg Disk Read Bytes/sec(Preview), Avg Disk Read Operations/sec(Preview), and 2 other metrics for myvm01-datadisk1",
+                        "titleKind": 1,
+                        "visualization": {
+                          "chartType": 2,
+                          "legendVisualization": {
+                            "isVisible": true,
+                            "position": 2,
+                            "hideSubtitle": false
+                          },
+                          "axisVisualization": {
+                            "x": {
+                              "isVisible": true,
+                              "axisType": 2
+                            },
+                            "y": {
+                              "isVisible": true,
+                              "axisType": 1
+                            }
+                          }
+                        },
+                        "timespan": {
+                          "relative": {
+                            "duration": 86400000
+                          },
+                          "showUTCTime": false,
+                          "grain": 1
+                        }
+                      }
+                    },
+                    "isOptional": true
+                  }
+                ],
+                "type": "Extension/HubsExtension/PartType/MonitorChartPart",
+                "settings": {
+                  "content": {
+                    "options": {
+                      "chart": {
+                        "metrics": [
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk1"
+                            },
+                            "name": "Composite Disk Read Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk1"
+                            },
+                            "name": "Composite Disk Read Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Operations/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk1"
+                            },
+                            "name": "Composite Disk Write Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk1"
+                            },
+                            "name": "Composite Disk Write Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Operations/sec(Preview)"
+                            }
+                          }
+                        ],
+                        "title": "myvm01-datadisk1",
+                        "titleKind": 2,
+                        "visualization": {
+                          "chartType": 2,
+                          "legendVisualization": {
+                            "isVisible": true,
+                            "position": 2,
+                            "hideSubtitle": false
+                          },
+                          "axisVisualization": {
+                            "x": {
+                              "isVisible": true,
+                              "axisType": 2
+                            },
+                            "y": {
+                              "isVisible": true,
+                              "axisType": 1
+                            }
+                          },
+                          "disablePinning": true
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "7": {
+              "position": {
+                "x": 4,
+                "y": 10,
+                "colSpan": 4,
+                "rowSpan": 3
+              },
+              "metadata": {
+                "inputs": [
+                  {
+                    "name": "sharedTimeRange",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "options",
+                    "value": {
+                      "chart": {
+                        "metrics": [
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk2"
+                            },
+                            "name": "Composite Disk Read Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk2"
+                            },
+                            "name": "Composite Disk Read Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Operations/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk2"
+                            },
+                            "name": "Composite Disk Write Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk2"
+                            },
+                            "name": "Composite Disk Write Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Operations/sec(Preview)"
+                            }
+                          }
+                        ],
+                        "title": "Avg Disk Read Bytes/sec(Preview), Avg Disk Read Operations/sec(Preview), and 2 other metrics for myvm01-datadisk2",
+                        "titleKind": 1,
+                        "visualization": {
+                          "chartType": 2,
+                          "legendVisualization": {
+                            "isVisible": true,
+                            "position": 2,
+                            "hideSubtitle": false
+                          },
+                          "axisVisualization": {
+                            "x": {
+                              "isVisible": true,
+                              "axisType": 2
+                            },
+                            "y": {
+                              "isVisible": true,
+                              "axisType": 1
+                            }
+                          }
+                        },
+                        "timespan": {
+                          "relative": {
+                            "duration": 86400000
+                          },
+                          "showUTCTime": false,
+                          "grain": 1
+                        }
+                      }
+                    },
+                    "isOptional": true
+                  }
+                ],
+                "type": "Extension/HubsExtension/PartType/MonitorChartPart",
+                "settings": {
+                  "content": {
+                    "options": {
+                      "chart": {
+                        "metrics": [
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk2"
+                            },
+                            "name": "Composite Disk Read Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk2"
+                            },
+                            "name": "Composite Disk Read Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Operations/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk2"
+                            },
+                            "name": "Composite Disk Write Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk2"
+                            },
+                            "name": "Composite Disk Write Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Operations/sec(Preview)"
+                            }
+                          }
+                        ],
+                        "title": "myvm01-datadisk2",
+                        "titleKind": 2,
+                        "visualization": {
+                          "chartType": 2,
+                          "legendVisualization": {
+                            "isVisible": true,
+                            "position": 2,
+                            "hideSubtitle": false
+                          },
+                          "axisVisualization": {
+                            "x": {
+                              "isVisible": true,
+                              "axisType": 2
+                            },
+                            "y": {
+                              "isVisible": true,
+                              "axisType": 1
+                            }
+                          },
+                          "disablePinning": true
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "8": {
+              "position": {
+                "x": 8,
+                "y": 10,
+                "colSpan": 4,
+                "rowSpan": 3
+              },
+              "metadata": {
+                "inputs": [
+                  {
+                    "name": "sharedTimeRange",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "options",
+                    "value": {
+                      "chart": {
+                        "metrics": [
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk3"
+                            },
+                            "name": "Composite Disk Read Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk3"
+                            },
+                            "name": "Composite Disk Read Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Operations/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk3"
+                            },
+                            "name": "Composite Disk Write Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk3"
+                            },
+                            "name": "Composite Disk Write Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Operations/sec(Preview)"
+                            }
+                          }
+                        ],
+                        "title": "Avg Disk Read Bytes/sec(Preview), Avg Disk Read Operations/sec(Preview), and 2 other metrics for myvm01-datadisk3",
+                        "titleKind": 1,
+                        "visualization": {
+                          "chartType": 2,
+                          "legendVisualization": {
+                            "isVisible": true,
+                            "position": 2,
+                            "hideSubtitle": false
+                          },
+                          "axisVisualization": {
+                            "x": {
+                              "isVisible": true,
+                              "axisType": 2
+                            },
+                            "y": {
+                              "isVisible": true,
+                              "axisType": 1
+                            }
+                          }
+                        },
+                        "timespan": {
+                          "relative": {
+                            "duration": 86400000
+                          },
+                          "showUTCTime": false,
+                          "grain": 1
+                        }
+                      }
+                    },
+                    "isOptional": true
+                  }
+                ],
+                "type": "Extension/HubsExtension/PartType/MonitorChartPart",
+                "settings": {
+                  "content": {
+                    "options": {
+                      "chart": {
+                        "metrics": [
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk3"
+                            },
+                            "name": "Composite Disk Read Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk3"
+                            },
+                            "name": "Composite Disk Read Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Operations/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk3"
+                            },
+                            "name": "Composite Disk Write Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk3"
+                            },
+                            "name": "Composite Disk Write Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Operations/sec(Preview)"
+                            }
+                          }
+                        ],
+                        "title": "myvm01-datadisk3",
+                        "titleKind": 2,
+                        "visualization": {
+                          "chartType": 2,
+                          "legendVisualization": {
+                            "isVisible": true,
+                            "position": 2,
+                            "hideSubtitle": false
+                          },
+                          "axisVisualization": {
+                            "x": {
+                              "isVisible": true,
+                              "axisType": 2
+                            },
+                            "y": {
+                              "isVisible": true,
+                              "axisType": 1
+                            }
+                          },
+                          "disablePinning": true
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "9": {
+              "position": {
+                "x": 12,
+                "y": 10,
+                "colSpan": 4,
+                "rowSpan": 3
+              },
+              "metadata": {
+                "inputs": [
+                  {
+                    "name": "sharedTimeRange",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "options",
+                    "value": {
+                      "chart": {
+                        "metrics": [
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk4"
+                            },
+                            "name": "Composite Disk Read Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk4"
+                            },
+                            "name": "Composite Disk Read Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Operations/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk4"
+                            },
+                            "name": "Composite Disk Write Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk4"
+                            },
+                            "name": "Composite Disk Write Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Operations/sec(Preview)"
+                            }
+                          }
+                        ],
+                        "title": "Avg Disk Read Bytes/sec(Preview), Avg Disk Read Operations/sec(Preview), and 2 other metrics for myvm01-datadisk4",
+                        "titleKind": 1,
+                        "visualization": {
+                          "chartType": 2,
+                          "legendVisualization": {
+                            "isVisible": true,
+                            "position": 2,
+                            "hideSubtitle": false
+                          },
+                          "axisVisualization": {
+                            "x": {
+                              "isVisible": true,
+                              "axisType": 2
+                            },
+                            "y": {
+                              "isVisible": true,
+                              "axisType": 1
+                            }
+                          }
+                        },
+                        "timespan": {
+                          "relative": {
+                            "duration": 86400000
+                          },
+                          "showUTCTime": false,
+                          "grain": 1
+                        }
+                      }
+                    },
+                    "isOptional": true
+                  }
+                ],
+                "type": "Extension/HubsExtension/PartType/MonitorChartPart",
+                "settings": {
+                  "content": {
+                    "options": {
+                      "chart": {
+                        "metrics": [
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk4"
+                            },
+                            "name": "Composite Disk Read Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk4"
+                            },
+                            "name": "Composite Disk Read Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Operations/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk4"
+                            },
+                            "name": "Composite Disk Write Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk4"
+                            },
+                            "name": "Composite Disk Write Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Operations/sec(Preview)"
+                            }
+                          }
+                        ],
+                        "title": "myvm01-datadisk4",
+                        "titleKind": 2,
+                        "visualization": {
+                          "chartType": 2,
+                          "legendVisualization": {
+                            "isVisible": true,
+                            "position": 2,
+                            "hideSubtitle": false
+                          },
+                          "axisVisualization": {
+                            "x": {
+                              "isVisible": true,
+                              "axisType": 2
+                            },
+                            "y": {
+                              "isVisible": true,
+                              "axisType": 1
+                            }
+                          },
+                          "disablePinning": true
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "10": {
+              "position": {
+                "x": 0,
+                "y": 13,
+                "colSpan": 4,
+                "rowSpan": 3
+              },
+              "metadata": {
+                "inputs": [
+                  {
+                    "name": "sharedTimeRange",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "options",
+                    "value": {
+                      "chart": {
+                        "metrics": [
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk5"
+                            },
+                            "name": "Composite Disk Read Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk5"
+                            },
+                            "name": "Composite Disk Read Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Operations/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk5"
+                            },
+                            "name": "Composite Disk Write Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk5"
+                            },
+                            "name": "Composite Disk Write Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Operations/sec(Preview)"
+                            }
+                          }
+                        ],
+                        "title": "Avg Disk Read Bytes/sec(Preview), Avg Disk Read Operations/sec(Preview), and 2 other metrics for myvm01-datadisk5",
+                        "titleKind": 1,
+                        "visualization": {
+                          "chartType": 2,
+                          "legendVisualization": {
+                            "isVisible": true,
+                            "position": 2,
+                            "hideSubtitle": false
+                          },
+                          "axisVisualization": {
+                            "x": {
+                              "isVisible": true,
+                              "axisType": 2
+                            },
+                            "y": {
+                              "isVisible": true,
+                              "axisType": 1
+                            }
+                          }
+                        },
+                        "timespan": {
+                          "relative": {
+                            "duration": 86400000
+                          },
+                          "showUTCTime": false,
+                          "grain": 1
+                        }
+                      }
+                    },
+                    "isOptional": true
+                  }
+                ],
+                "type": "Extension/HubsExtension/PartType/MonitorChartPart",
+                "settings": {
+                  "content": {
+                    "options": {
+                      "chart": {
+                        "metrics": [
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk5"
+                            },
+                            "name": "Composite Disk Read Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk5"
+                            },
+                            "name": "Composite Disk Read Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Operations/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk5"
+                            },
+                            "name": "Composite Disk Write Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk5"
+                            },
+                            "name": "Composite Disk Write Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Operations/sec(Preview)"
+                            }
+                          }
+                        ],
+                        "title": "myvm01-datadisk5",
+                        "titleKind": 2,
+                        "visualization": {
+                          "chartType": 2,
+                          "legendVisualization": {
+                            "isVisible": true,
+                            "position": 2,
+                            "hideSubtitle": false
+                          },
+                          "axisVisualization": {
+                            "x": {
+                              "isVisible": true,
+                              "axisType": 2
+                            },
+                            "y": {
+                              "isVisible": true,
+                              "axisType": 1
+                            }
+                          },
+                          "disablePinning": true
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "11": {
+              "position": {
+                "x": 4,
+                "y": 13,
+                "colSpan": 4,
+                "rowSpan": 3
+              },
+              "metadata": {
+                "inputs": [
+                  {
+                    "name": "sharedTimeRange",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "options",
+                    "value": {
+                      "chart": {
+                        "metrics": [
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk6"
+                            },
+                            "name": "Composite Disk Read Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk6"
+                            },
+                            "name": "Composite Disk Read Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Operations/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk6"
+                            },
+                            "name": "Composite Disk Write Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk6"
+                            },
+                            "name": "Composite Disk Write Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Operations/sec(Preview)"
+                            }
+                          }
+                        ],
+                        "title": "Avg Disk Read Bytes/sec(Preview), Avg Disk Read Operations/sec(Preview), and 2 other metrics for myvm01-datadisk6",
+                        "titleKind": 1,
+                        "visualization": {
+                          "chartType": 2,
+                          "legendVisualization": {
+                            "isVisible": true,
+                            "position": 2,
+                            "hideSubtitle": false
+                          },
+                          "axisVisualization": {
+                            "x": {
+                              "isVisible": true,
+                              "axisType": 2
+                            },
+                            "y": {
+                              "isVisible": true,
+                              "axisType": 1
+                            }
+                          }
+                        },
+                        "timespan": {
+                          "relative": {
+                            "duration": 86400000
+                          },
+                          "showUTCTime": false,
+                          "grain": 1
+                        }
+                      }
+                    },
+                    "isOptional": true
+                  }
+                ],
+                "type": "Extension/HubsExtension/PartType/MonitorChartPart",
+                "settings": {
+                  "content": {
+                    "options": {
+                      "chart": {
+                        "metrics": [
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk6"
+                            },
+                            "name": "Composite Disk Read Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk6"
+                            },
+                            "name": "Composite Disk Read Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Operations/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk6"
+                            },
+                            "name": "Composite Disk Write Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk6"
+                            },
+                            "name": "Composite Disk Write Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Operations/sec(Preview)"
+                            }
+                          }
+                        ],
+                        "title": "myvm01-datadisk6",
+                        "titleKind": 2,
+                        "visualization": {
+                          "chartType": 2,
+                          "legendVisualization": {
+                            "isVisible": true,
+                            "position": 2,
+                            "hideSubtitle": false
+                          },
+                          "axisVisualization": {
+                            "x": {
+                              "isVisible": true,
+                              "axisType": 2
+                            },
+                            "y": {
+                              "isVisible": true,
+                              "axisType": 1
+                            }
+                          },
+                          "disablePinning": true
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "12": {
+              "position": {
+                "x": 8,
+                "y": 13,
+                "colSpan": 4,
+                "rowSpan": 3
+              },
+              "metadata": {
+                "inputs": [
+                  {
+                    "name": "sharedTimeRange",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "options",
+                    "value": {
+                      "chart": {
+                        "metrics": [
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk7"
+                            },
+                            "name": "Composite Disk Read Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk7"
+                            },
+                            "name": "Composite Disk Read Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Operations/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk7"
+                            },
+                            "name": "Composite Disk Write Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk7"
+                            },
+                            "name": "Composite Disk Write Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Operations/sec(Preview)"
+                            }
+                          }
+                        ],
+                        "title": "Avg Disk Read Bytes/sec(Preview), Avg Disk Read Operations/sec(Preview), and 2 other metrics for myvm01-datadisk7",
+                        "titleKind": 1,
+                        "visualization": {
+                          "chartType": 2,
+                          "legendVisualization": {
+                            "isVisible": true,
+                            "position": 2,
+                            "hideSubtitle": false
+                          },
+                          "axisVisualization": {
+                            "x": {
+                              "isVisible": true,
+                              "axisType": 2
+                            },
+                            "y": {
+                              "isVisible": true,
+                              "axisType": 1
+                            }
+                          }
+                        },
+                        "timespan": {
+                          "relative": {
+                            "duration": 86400000
+                          },
+                          "showUTCTime": false,
+                          "grain": 1
+                        }
+                      }
+                    },
+                    "isOptional": true
+                  }
+                ],
+                "type": "Extension/HubsExtension/PartType/MonitorChartPart",
+                "settings": {
+                  "content": {
+                    "options": {
+                      "chart": {
+                        "metrics": [
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk7"
+                            },
+                            "name": "Composite Disk Read Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk7"
+                            },
+                            "name": "Composite Disk Read Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Operations/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk7"
+                            },
+                            "name": "Composite Disk Write Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk7"
+                            },
+                            "name": "Composite Disk Write Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Operations/sec(Preview)"
+                            }
+                          }
+                        ],
+                        "title": "myvm01-datadisk7",
+                        "titleKind": 2,
+                        "visualization": {
+                          "chartType": 2,
+                          "legendVisualization": {
+                            "isVisible": true,
+                            "position": 2,
+                            "hideSubtitle": false
+                          },
+                          "axisVisualization": {
+                            "x": {
+                              "isVisible": true,
+                              "axisType": 2
+                            },
+                            "y": {
+                              "isVisible": true,
+                              "axisType": 1
+                            }
+                          },
+                          "disablePinning": true
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "13": {
+              "position": {
+                "x": 12,
+                "y": 13,
+                "colSpan": 4,
+                "rowSpan": 3
+              },
+              "metadata": {
+                "inputs": [
+                  {
+                    "name": "sharedTimeRange",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "options",
+                    "value": {
+                      "chart": {
+                        "metrics": [
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk8"
+                            },
+                            "name": "Composite Disk Read Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk8"
+                            },
+                            "name": "Composite Disk Read Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Operations/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk8"
+                            },
+                            "name": "Composite Disk Write Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk8"
+                            },
+                            "name": "Composite Disk Write Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Operations/sec(Preview)"
+                            }
+                          }
+                        ],
+                        "title": "Avg Disk Read Bytes/sec(Preview), Avg Disk Read Operations/sec(Preview), and 2 other metrics for myvm01-datadisk8",
+                        "titleKind": 1,
+                        "visualization": {
+                          "chartType": 2,
+                          "legendVisualization": {
+                            "isVisible": true,
+                            "position": 2,
+                            "hideSubtitle": false
+                          },
+                          "axisVisualization": {
+                            "x": {
+                              "isVisible": true,
+                              "axisType": 2
+                            },
+                            "y": {
+                              "isVisible": true,
+                              "axisType": 1
+                            }
+                          }
+                        },
+                        "timespan": {
+                          "relative": {
+                            "duration": 86400000
+                          },
+                          "showUTCTime": false,
+                          "grain": 1
+                        }
+                      }
+                    },
+                    "isOptional": true
+                  }
+                ],
+                "type": "Extension/HubsExtension/PartType/MonitorChartPart",
+                "settings": {
+                  "content": {
+                    "options": {
+                      "chart": {
+                        "metrics": [
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk8"
+                            },
+                            "name": "Composite Disk Read Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk8"
+                            },
+                            "name": "Composite Disk Read Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Operations/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk8"
+                            },
+                            "name": "Composite Disk Write Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-datadisk8"
+                            },
+                            "name": "Composite Disk Write Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Operations/sec(Preview)"
+                            }
+                          }
+                        ],
+                        "title": "myvm01-datadisk8",
+                        "titleKind": 2,
+                        "visualization": {
+                          "chartType": 2,
+                          "legendVisualization": {
+                            "isVisible": true,
+                            "position": 2,
+                            "hideSubtitle": false
+                          },
+                          "axisVisualization": {
+                            "x": {
+                              "isVisible": true,
+                              "axisType": 2
+                            },
+                            "y": {
+                              "isVisible": true,
+                              "axisType": 1
+                            }
+                          },
+                          "disablePinning": true
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "14": {
+              "position": {
+                "x": 0,
+                "y": 16,
+                "colSpan": 16,
+                "rowSpan": 1
+              },
+              "metadata": {
+                "inputs": [],
+                "type": "Extension/HubsExtension/PartType/MarkdownPart",
+                "settings": {
+                  "content": {
+                    "settings": {
+                      "content": "# OS Disk, CPU, Memory, Network\n",
+                      "title": "",
+                      "subtitle": "",
+                      "markdownSource": 1,
+                      "markdownUri": null
+                    }
+                  }
+                }
+              }
+            },
+            "15": {
+              "position": {
+                "x": 0,
+                "y": 17,
+                "colSpan": 4,
+                "rowSpan": 3
+              },
+              "metadata": {
+                "inputs": [
+                  {
+                    "name": "sharedTimeRange",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "options",
+                    "value": {
+                      "chart": {
+                        "metrics": [
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-OsDisk"
+                            },
+                            "name": "Composite Disk Read Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-OsDisk"
+                            },
+                            "name": "Composite Disk Read Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Operations/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-OsDisk"
+                            },
+                            "name": "Composite Disk Write Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-OsDisk"
+                            },
+                            "name": "Composite Disk Write Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Operations/sec(Preview)"
+                            }
+                          }
+                        ],
+                        "title": "Avg Disk Read Bytes/sec(Preview), Avg Disk Read Operations/sec(Preview), and 2 other metrics for myvm01-OsDisk",
+                        "titleKind": 1,
+                        "visualization": {
+                          "chartType": 2,
+                          "legendVisualization": {
+                            "isVisible": true,
+                            "position": 2,
+                            "hideSubtitle": false
+                          },
+                          "axisVisualization": {
+                            "x": {
+                              "isVisible": true,
+                              "axisType": 2
+                            },
+                            "y": {
+                              "isVisible": true,
+                              "axisType": 1
+                            }
+                          }
+                        },
+                        "timespan": {
+                          "relative": {
+                            "duration": 86400000
+                          },
+                          "showUTCTime": false,
+                          "grain": 1
+                        }
+                      }
+                    },
+                    "isOptional": true
+                  }
+                ],
+                "type": "Extension/HubsExtension/PartType/MonitorChartPart",
+                "settings": {
+                  "content": {
+                    "options": {
+                      "chart": {
+                        "metrics": [
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-OsDisk"
+                            },
+                            "name": "Composite Disk Read Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-OsDisk"
+                            },
+                            "name": "Composite Disk Read Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Read Operations/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-OsDisk"
+                            },
+                            "name": "Composite Disk Write Bytes/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Bytes/sec(Preview)"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/disks/myvm01-OsDisk"
+                            },
+                            "name": "Composite Disk Write Operations/sec",
+                            "aggregationType": 4,
+                            "namespace": "microsoft.compute/disks",
+                            "metricVisualization": {
+                              "displayName": "Disk Write Operations/sec(Preview)"
+                            }
+                          }
+                        ],
+                        "title": "Avg Disk Read Bytes/sec(Preview), Avg Disk Read Operations/sec(Preview), and 2 other metrics for myvm01-OsDisk",
+                        "titleKind": 1,
+                        "visualization": {
+                          "chartType": 2,
+                          "legendVisualization": {
+                            "isVisible": true,
+                            "position": 2,
+                            "hideSubtitle": false
+                          },
+                          "axisVisualization": {
+                            "x": {
+                              "isVisible": true,
+                              "axisType": 2
+                            },
+                            "y": {
+                              "isVisible": true,
+                              "axisType": 1
+                            }
+                          },
+                          "disablePinning": true
+                        }
+                      }
+                    }
+                  }
+                },
+                "filters": {
+                  "MsPortalFx_TimeRange": {
+                    "model": {
+                      "format": "local",
+                      "granularity": "auto",
+                      "relative": "1440m"
+                    }
+                  }
+                }
+              }
+            },
+            "16": {
+              "position": {
+                "x": 4,
+                "y": 17,
+                "colSpan": 4,
+                "rowSpan": 3
+              },
+              "metadata": {
+                "inputs": [
+                  {
+                    "name": "sharedTimeRange",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "options",
+                    "value": {
+                      "chart": {
+                        "metrics": [
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/virtualMachines/myvm01"
+                            },
+                            "name": "Percentage CPU",
+                            "aggregationType": 4,
+                            "metricVisualization": {
+                              "displayName": "Percentage CPU",
+                              "resourceDisplayName": "myvm01"
+                            }
+                          }
+                        ],
+                        "title": "CPU (average)",
+                        "titleKind": 2,
+                        "visualization": {
+                          "chartType": 2
+                        },
+                        "openBladeOnClick": {
+                          "openBlade": true
+                        }
+                      }
+                    },
+                    "isOptional": true
+                  }
+                ],
+                "type": "Extension/HubsExtension/PartType/MonitorChartPart",
+                "settings": {
+                  "content": {
+                    "options": {
+                      "chart": {
+                        "metrics": [
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/virtualMachines/myvm01"
+                            },
+                            "name": "Percentage CPU",
+                            "aggregationType": 4,
+                            "metricVisualization": {
+                              "displayName": "Percentage CPU",
+                              "resourceDisplayName": "myvm01"
+                            }
+                          }
+                        ],
+                        "title": "CPU (average)",
+                        "titleKind": 2,
+                        "visualization": {
+                          "chartType": 2,
+                          "disablePinning": true
+                        },
+                        "openBladeOnClick": {
+                          "openBlade": true
+                        }
+                      }
+                    }
+                  }
+                },
+                "filters": {
+                  "MsPortalFx_TimeRange": {
+                    "model": {
+                      "format": "local",
+                      "granularity": "auto",
+                      "relative": "60m"
+                    }
+                  }
+                }
+              }
+            },
+            "17": {
+              "position": {
+                "x": 8,
+                "y": 17,
+                "colSpan": 4,
+                "rowSpan": 3
+              },
+              "metadata": {
+                "inputs": [
+                  {
+                    "name": "sharedTimeRange",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "options",
+                    "value": {
+                      "chart": {
+                        "metrics": [
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/virtualMachines/myvm01"
+                            },
+                            "name": "Available Memory Bytes",
+                            "aggregationType": 4,
+                            "metricVisualization": {
+                              "displayName": "Available Memory Bytes (Preview)",
+                              "resourceDisplayName": "myvm01"
+                            }
+                          }
+                        ],
+                        "title": "Available Memory Bytes (Preview)",
+                        "titleKind": 2,
+                        "visualization": {
+                          "chartType": 2
+                        },
+                        "openBladeOnClick": {
+                          "openBlade": true
+                        }
+                      }
+                    },
+                    "isOptional": true
+                  }
+                ],
+                "type": "Extension/HubsExtension/PartType/MonitorChartPart",
+                "settings": {
+                  "content": {
+                    "options": {
+                      "chart": {
+                        "metrics": [
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/virtualMachines/myvm01"
+                            },
+                            "name": "Available Memory Bytes",
+                            "aggregationType": 4,
+                            "metricVisualization": {
+                              "displayName": "Available Memory Bytes (Preview)",
+                              "resourceDisplayName": "myvm01"
+                            }
+                          }
+                        ],
+                        "title": "Available Memory Bytes (Preview)",
+                        "titleKind": 2,
+                        "visualization": {
+                          "chartType": 2,
+                          "disablePinning": true
+                        },
+                        "openBladeOnClick": {
+                          "openBlade": true
+                        }
+                      }
+                    }
+                  }
+                },
+                "filters": {
+                  "MsPortalFx_TimeRange": {
+                    "model": {
+                      "format": "local",
+                      "granularity": "auto",
+                      "relative": "60m"
+                    }
+                  }
+                }
+              }
+            },
+            "18": {
+              "position": {
+                "x": 12,
+                "y": 17,
+                "colSpan": 4,
+                "rowSpan": 3
+              },
+              "metadata": {
+                "inputs": [
+                  {
+                    "name": "sharedTimeRange",
+                    "isOptional": true
+                  },
+                  {
+                    "name": "options",
+                    "value": {
+                      "chart": {
+                        "metrics": [
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/virtualMachines/myvm01"
+                            },
+                            "name": "Network In Total",
+                            "aggregationType": 1,
+                            "metricVisualization": {
+                              "displayName": "Network In Total",
+                              "resourceDisplayName": "myvm01"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/virtualMachines/myvm01"
+                            },
+                            "name": "Network Out Total",
+                            "aggregationType": 1,
+                            "metricVisualization": {
+                              "displayName": "Network Out Total",
+                              "resourceDisplayName": "myvm01"
+                            }
+                          }
+                        ],
+                        "title": "Network (total)",
+                        "titleKind": 2,
+                        "visualization": {
+                          "chartType": 2
+                        },
+                        "openBladeOnClick": {
+                          "openBlade": true
+                        }
+                      }
+                    },
+                    "isOptional": true
+                  }
+                ],
+                "type": "Extension/HubsExtension/PartType/MonitorChartPart",
+                "settings": {
+                  "content": {
+                    "options": {
+                      "chart": {
+                        "metrics": [
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/virtualMachines/myvm01"
+                            },
+                            "name": "Network In Total",
+                            "aggregationType": 1,
+                            "metricVisualization": {
+                              "displayName": "Network In Total",
+                              "resourceDisplayName": "myvm01"
+                            }
+                          },
+                          {
+                            "resourceMetadata": {
+                              "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myrg123456/providers/Microsoft.Compute/virtualMachines/myvm01"
+                            },
+                            "name": "Network Out Total",
+                            "aggregationType": 1,
+                            "metricVisualization": {
+                              "displayName": "Network Out Total",
+                              "resourceDisplayName": "myvm01"
+                            }
+                          }
+                        ],
+                        "title": "Network (total)",
+                        "titleKind": 2,
+                        "visualization": {
+                          "chartType": 2,
+                          "disablePinning": true
+                        },
+                        "openBladeOnClick": {
+                          "openBlade": true
+                        }
+                      }
+                    }
+                  }
+                },
+                "filters": {
+                  "MsPortalFx_TimeRange": {
+                    "model": {
+                      "format": "local",
+                      "granularity": "auto",
+                      "relative": "60m"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "metadata": {
+        "model": {
+          "timeRange": {
+            "value": {
+              "relative": {
+                "duration": 24,
+                "timeUnit": 1
+              }
+            },
+            "type": "MsPortalFx.Composition.Configuration.ValueTypes.TimeRange"
+          },
+          "filterLocale": {
+            "value": "en-us"
+          },
+          "filters": {
+            "value": {
+              "MsPortalFx_TimeRange": {
+                "model": {
+                  "format": "utc",
+                  "granularity": "auto",
+                  "relative": "24h"
+                },
+                "displayCache": {
+                  "name": "UTC Time",
+                  "value": "Past 24 hours"
+                },
+                "filteredPartIds": [
+                  "StartboardPart-LogsDashboardPart-c3d90a14-77ac-4bdb-932a-e628b5146425",
+                  "StartboardPart-LogsDashboardPart-c3d90a14-77ac-4bdb-932a-e628b51467a1",
+                  "StartboardPart-LogsDashboardPart-c3d90a14-77ac-4bdb-932a-e628b51467c6",
+                  "StartboardPart-LogsDashboardPart-c3d90a14-77ac-4bdb-932a-e628b51467e6",
+                  "StartboardPart-MonitorChartPart-a98dbac3-a642-47b1-b10e-89c455e6c270",
+                  "StartboardPart-MonitorChartPart-906e1257-d817-4d2c-ba73-1c1e59af115e",
+                  "StartboardPart-MonitorChartPart-906e1257-d817-4d2c-ba73-1c1e59af11fc",
+                  "StartboardPart-MonitorChartPart-906e1257-d817-4d2c-ba73-1c1e59af12a6",
+                  "StartboardPart-MonitorChartPart-906e1257-d817-4d2c-ba73-1c1e59af135b",
+                  "StartboardPart-MonitorChartPart-906e1257-d817-4d2c-ba73-1c1e59af1424",
+                  "StartboardPart-MonitorChartPart-906e1257-d817-4d2c-ba73-1c1e59af14f1",
+                  "StartboardPart-MonitorChartPart-906e1257-d817-4d2c-ba73-1c1e59af15d1",
+                  "StartboardPart-MonitorChartPart-c2c7c5d2-75d3-458e-adba-0f5a611b2385",
+                  "StartboardPart-MonitorChartPart-c2c7c5d2-75d3-458e-adba-0f5a611b24c9",
+                  "StartboardPart-MonitorChartPart-c2c7c5d2-75d3-458e-adba-0f5a611b25d4",
+                  "StartboardPart-MonitorChartPart-c2c7c5d2-75d3-458e-adba-0f5a611b2689"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "name": "myvm01",
+    "type": "Microsoft.Portal/dashboards",
+    "location": "INSERT LOCATION",
+    "tags": {
+      "hidden-title": "myvm01"
+    },
+    "apiVersion": "2015-08-01-preview"
+  }
