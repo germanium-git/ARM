@@ -14,12 +14,12 @@
       "name": "mytestdashboard",
       "type": "Microsoft.Portal/dashboards",
       "location": "[resourceGroup().location]",
-      "apiVersion": "2020-09-01-preview",
+      "apiVersion": "2019-01-01-preview",
       "tags": {
         "hidden-title": "[parameters('dashboardName')]"
       },
     "properties": {
-      ...
+      ... <<< put your dashboard definition here
       }
     }      
   ],

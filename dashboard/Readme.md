@@ -1,74 +1,51 @@
 # Create dashboard by ARM template
 
 ```shell
-az deployment group create --resource-group rg-nemedpet-dashboard --template-file dashboard_arm.json
+az deployment group create --resource-group rg-nemedpet-dashboard --template-file dashboard-new-api.json
 ```
 
-## Fix the dashboard definition in JSON
+## Warning
 
-Download the JSON definition from the existing dashboard. There are two things preventing bicep template from using it. It contains additional trailing characters and two values have incorrect data types.
+The template uses intentionally the older API "2019-01-01-preview" to make it work with the dashboard definition files downloaded from portal.
+Starting from 2020-09-01-preview the different structure of the JSON file defining the dashboard comes to play. To get the dashboard definition formatted according to the latest API use armclient get. More info in [fix_json_new_api.md](fix_json_new_api.md).
 
-The snippet of the JSON file exported from the dashboard.
+The value of lenses and parts is no longer object but with new API they are required to be the data type of list.
 
-```shell
-"properties": {
-      "lenses": {       <<< data type object
-        "0": {          <<< trailing characters "0,1,2...":
-          "order": 0,
-          "parts": {    <<< data type object
-            ...
-            ...         <<< trailing characters "0,1,2...": in parts section
-          }
-        }
-      },
-      "metadata": {
-```
-
-First remove all trailing parts like "0": {, "1": { from the file by using Notepad++
-
-```shell
-"\d+": {
-```
-
-<img src="pictures/regex_notepad.PNG" width="400">
-
-Second, change the data type of the value lenses and parts from the object to the list.
-
-The example of a correct JSON structure.
-
-```shell
-  "properties": {
-    "lenses": [         <<< data type list
-      {        
-        "order": 0,
-        "parts": [      <<< data type list
-          ...
-          ...
-        ]               <<< closing square brackets
-      }
-    ],                  <<< closing square brackets
-    "metadata": {
-
-```
-
-The closing brackets can be found by one of those online JSON formatters i.e. https://jsonformatter.curiousconcept.com/
-
-
-<img src="pictures/closing_brackets.PNG" width="400">
-
-## Error message - Cannot deserialize the current JSON object
-
-The deployment from the ARM template fails if the JSON file representing the dashboard exported from the portal is used without being re-formated.
-
-```shell
+```json
 {
-  "code": "DeploymentFailed",
-  "message": "At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details.",
-  "details": [
-    {
-      "code": "37",
-      "message": "The request content was invalid and could not be deserialized: 'Cannot deserialize the current JSON object (e.g. {\"name\":\"value\"}) into type 'System.Collections.Generic.List`1[Microsoft.WindowsAzure.ResourceStack.Providers.Feature.Definitions.V2020_09_01.DashboardLensDefinition_V2020_09_01]' because the type requires a JSON array (e.g. [1,2,3]) to deserialize correctly.\r\nTo fix this error either change the JSON to a JSON array (e.g. [1,2,3]) or change the deserialized type so that it is a normal .NET type (e.g. not a primitive type like integer, not a collection type like an array or List<T>) that can be deserialized from a JSON object. JsonObjectAttribute can also be added to the type to force it to deserialize from a JSON object.\r\nPath 'properties.lenses.0', line 1, position 97.'."
-    }
-  ]
+  "type": "Microsoft.Portal/dashboards",
+  "apiVersion": "2020-09-01-preview",
+  "name": "string",
+  "location": "string",
+  "tags": {
+    "tagName1": "tagValue1",
+    "tagName2": "tagValue2"
+  },
+  "properties": {
+    "lenses": [         <<< list
+      {
+        "metadata": {},
+        "order": "int",
+        "parts": [      <<< list
+          {
+            "metadata": {
+              "type": "string"
+              // For remaining properties, see DashboardPartMetadata objects
+            },
+            "position": {
+              "colSpan": "int",
+              "metadata": {},
+              "rowSpan": "int",
+              "x": "int",
+              "y": "int"
+            }
+          }
+        ]
+      }
+    ],
+    "metadata": {}
+  }
 }
 ```
+
+More information on how to convert the JSON file to meet the requirements for the API 2020-09-01-preview can be found in [fix_json_new_api.md](fix_json_new_api.md).
