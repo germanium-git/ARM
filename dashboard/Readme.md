@@ -1,7 +1,8 @@
 # Create dashboard by ARM template
 
-```
+```shell
 az deployment group create --resource-group rg-nemedpet-dashboard --template-file dashboard_arm.json
+```
 
 ## Fix the dashboard definition in JSON
 
